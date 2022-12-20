@@ -1,12 +1,29 @@
 extends RigidBody
 
+var rolling = false
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Enables physics for the bowling ball and applies specified amount of force and rotation
+func roll(speed, angle, spin = 0):
+	mode = MODE_RIGID
+	apply_central_impulse(Vector3(angle, 18, -speed))
+	apply_torque_impulse(Vector3(0, 0, spin))
+
+# Change position to roll the bowling ball from
+func adjust_position(direction):
+	translation.x = clamp(translation.x + 0.01 * direction, -4.2, -3.2)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	apply_central_impulse(Vector3(0, 15, -180))
-	apply_torque_impulse(Vector3(0, 0, 0))
+func _process(_delta):
+	if Input.is_action_pressed("left"):
+		adjust_position(-1)
+	
+	if Input.is_action_pressed("right"):
+		adjust_position(1)
+
+
+func _input(event):
+	if event is InputEventKey && !rolling:
+		match event.scancode:
+			KEY_SPACE:
+				if mode != MODE_RIGID && !event.echo && !event.pressed:
+					roll(180, 0)

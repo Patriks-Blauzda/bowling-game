@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=57 format=2]
+[gd_resource type="ArrayMesh" load_steps=58 format=2]
 
 [ext_resource path="res://Models/Images/lane_approach_dots.bmp" type="Texture" id=1]
 [ext_resource path="res://Models/Images/LightFrame.bmp" type="Texture" id=2]
@@ -73,6 +73,9 @@ albedo_texture = ExtResource( 23 )
 [sub_resource type="SpatialMaterial" id=15]
 albedo_texture = ExtResource( 21 )
 
+[sub_resource type="SpatialMaterial" id=39]
+albedo_texture = ExtResource( 21 )
+
 [sub_resource type="SpatialMaterial" id=36]
 albedo_texture = ExtResource( 18 )
 uv1_triplanar = true
@@ -106,6 +109,8 @@ uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=23]
 albedo_texture = ExtResource( 19 )
+uv1_scale = Vector3( 0.145, 0.145, 0.145 )
+uv1_triplanar = true
 
 [sub_resource type="SpatialMaterial" id=25]
 albedo_texture = ExtResource( 7 )
@@ -2387,6 +2392,7 @@ surfaces/173 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1080,
+"material": SubResource( 39 ),
 "name": "PitFront",
 "primitive": 4,
 "skeleton_aabb": [  ],

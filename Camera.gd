@@ -1,11 +1,5 @@
 extends Camera
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
+# Follows the bowling ball at a set distance, but doesn't go out of bounds
 func _process(_delta):
-	translation.z = clamp(get_parent().get_node("BowlingBall").translation.z + 3, -6, 35)
+	translation.z = clamp(get_parent().get_node("BowlingBall").translation.z + 3, -6, 12.2)

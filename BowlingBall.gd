@@ -14,16 +14,29 @@ func adjust_position(direction):
 
 
 func _process(_delta):
-	if Input.is_action_pressed("left"):
-		adjust_position(-1)
+	if !rolling:
+		if Input.is_action_pressed("left"):
+			adjust_position(-1)
+		
+		if Input.is_action_pressed("right"):
+			adjust_position(1)
 	
-	if Input.is_action_pressed("right"):
-		adjust_position(1)
 
 
 func _input(event):
-	if event is InputEventKey && !rolling:
-		match event.scancode:
-			KEY_SPACE:
-				if mode != MODE_RIGID && !event.echo && !event.pressed:
-					roll(180, 0)
+	if event is InputEventKey:
+		if !event.echo && !event.pressed:
+			match event.scancode:
+				KEY_SPACE:
+					if mode != MODE_RIGID && !rolling:
+						roll(180, 8, 10)
+						rolling = true
+						
+				KEY_R:
+					var _reload = get_tree().reload_current_scene()
+
+
+# Prevents the ball from spinning and going flying when in the gutter
+func _on_Gutter_body_entered(body):
+	if body.name == "BowlingBall":
+		angular_velocity = Vector3.ZERO

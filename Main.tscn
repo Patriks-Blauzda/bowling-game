@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://BowlingBall.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Models/Material_002.material" type="Material" id=4]
 [ext_resource path="res://Models/Material_001.material" type="Material" id=5]
 [ext_resource path="res://Models/Images/brick01.bmp" type="Texture" id=6]
+[ext_resource path="res://arrow.png" type="Texture" id=7]
+[ext_resource path="res://spin.png" type="Texture" id=8]
 
 [sub_resource type="PhysicsMaterial" id=8]
 friction = 0.5
@@ -27,6 +29,60 @@ roughness = 0.08
 clearcoat_enabled = true
 clearcoat = 1.0
 clearcoat_gloss = 1.0
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3.682, 1.12, 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -18.8, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "overhead transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3.682, 1.12, 14 ), Vector3( -3.682, 0.830449, 11.2319 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18.8, 1.12, 0 ), Vector3( -35, 0, 0 ) ]
+}
 
 [sub_resource type="PhysicsMaterial" id=9]
 friction = 0.05
@@ -119,7 +175,7 @@ glow_enabled = true
 [node name="Main" type="Spatial"]
 
 [node name="BowlingBall" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 0.251, 10.989 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 0.25, 11 )
 mode = 1
 mass = 18.0
 physics_material_override = SubResource( 8 )
@@ -137,10 +193,51 @@ shape = SubResource( 4 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
+[node name="GuidingArrow" type="Sprite3D" parent="BowlingBall"]
+transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, -0.24, 0 )
+offset = Vector2( 0, 366 )
+double_sided = false
+texture = ExtResource( 7 )
+
+[node name="Control" type="Control" parent="BowlingBall"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Speed" type="ProgressBar" parent="BowlingBall/Control"]
+anchor_left = 0.390625
+anchor_top = 0.956667
+anchor_right = 0.609375
+anchor_bottom = 0.991667
+min_value = 100.0
+max_value = 200.0
+step = 1.0
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Spin" type="Sprite" parent="BowlingBall/Control"]
+position = Vector2( 933, 80 )
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 8 )
+
+[node name="SpinText" type="Label" parent="BowlingBall/Control"]
+margin_left = 910.0
+margin_top = 58.0
+margin_right = 957.0
+margin_bottom = 103.0
+align = 1
+valign = 1
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.946868, 0.321621, 0, -0.321621, 0.946868, -3.682, 1.12, 12.084 )
+transform = Transform( 1, 0, 0, 0, 0.946649, 0.322266, 0, -0.322266, 0.946649, -3.682, 1.12, 14 )
 current = true
 script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/RESET = SubResource( 19 )
+"anims/overhead transition" = SubResource( 20 )
 
 [node name="Venue01" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )

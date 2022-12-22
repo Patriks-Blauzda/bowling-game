@@ -49,7 +49,7 @@ uv1_triplanar = true
 
 [sub_resource type="CylinderShape" id=17]
 height = 21.2022
-radius = 0.109132
+radius = 0.102
 
 [sub_resource type="BoxShape" id=18]
 extents = Vector3( 0.859668, 0.715988, 0.948721 )
@@ -138,7 +138,7 @@ mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.946868, 0.321621, 0, -0.321621, 0.946868, -3.68222, 1.1865, 12.0836 )
+transform = Transform( 1, 0, 0, 0, 0.946868, 0.321621, 0, -0.321621, 0.946868, -3.682, 1.12, 12.084 )
 current = true
 script = ExtResource( 2 )
 

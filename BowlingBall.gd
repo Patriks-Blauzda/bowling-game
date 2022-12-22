@@ -22,7 +22,6 @@ func reset():
 	
 	$Control/Speed.hide()
 	$Control/Spin.hide()
-	$Control/SpinText.hide()
 	$GuidingArrow.hide()
 	
 	speed = 0
@@ -51,6 +50,10 @@ func adjust_position(direction):
 
 func adjust_spin(direction):
 	spin = clamp(spin + 0.05 * direction, -10, 10)
+	if spin < 0:
+		$Control/Spin.flip_h = false
+	else:
+		$Control/Spin.flip_h = true
 
 
 func _input(event):
@@ -80,13 +83,11 @@ func _input(event):
 							$Control/Speed.hide()
 							
 							$Control/Spin.show()
-							$Control/SpinText.show()
 							action = state.ROLLING
 							
 						state.ROLLING:
 							if mode != MODE_RIGID:
 								$Control/Spin.hide()
-								$Control/SpinText.hide()
 								
 								roll(speed, angle, spin)
 				
@@ -127,7 +128,6 @@ func _process(_delta):
 				adjust_spin(-1)
 			
 			$Control/Spin.rotation_degrees -= spin
-			$Control/SpinText.text = str(stepify(-spin, 0.10))
 
 
 # Prevents the ball from spinning and going flying when in the gutter

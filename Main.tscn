@@ -222,14 +222,6 @@ position = Vector2( 933, 80 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 8 )
 
-[node name="SpinText" type="Label" parent="BowlingBall/Control"]
-margin_left = 910.0
-margin_top = 58.0
-margin_right = 957.0
-margin_bottom = 103.0
-align = 1
-valign = 1
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.946649, 0.322266, 0, -0.322266, 0.946649, -3.682, 1.12, 14 )
 current = true

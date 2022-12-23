@@ -97,13 +97,6 @@ func _input(event):
 							
 							roll(speed, angle, spin)
 							action = state.ROLLING
-				
-				# Keys for debugging
-				KEY_R:
-					var _reload = get_tree().reload_current_scene()
-				
-				KEY_T:
-					reset()
 
 
 func _process(_delta):

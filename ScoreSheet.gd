@@ -16,21 +16,19 @@ func display_scores():
 	
 	var scores = Global.scoring
 	for i in range(scores.size()):
-		var frame = get_node("GridContainer/Frame" + str(i + 1))
-		
-		frame.text = ""
-		
-		var frame_sum = 0
-		
-		for score in scores[i]:
-			if score == 10:
-				frame.text += "X "
-			else:
-				frame.text += str(score) + " "
-			frame_sum += score
-		
-		if frame_sum != 0:
-			frame.text += "\n" + str(frame_sum) + " "
+		if i < 10:
+			var frame = get_node("GridContainer/Frame" + str(i + 1))
+			
+			frame.text = ""
+			
+			for score in scores[i]:
+				if score == 10:
+					frame.text += "X "
+				else:
+					frame.text += str(score) + " "
+			
+			if Global.summed_score.size() > i:
+				frame.text += "\n" + str(Global.summed_score[i]) + " "
 		
 		
 	$GridContainer/Total.text = str(Global.get_total_score())

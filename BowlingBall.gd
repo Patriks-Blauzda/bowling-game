@@ -131,7 +131,7 @@ func _process(_delta):
 		
 		# Checks when the ball has dropped in the gutter and waits before finishing
 		state.ROLLING:
-			if translation.y < -0.45 && $Timer.is_stopped():
+			if (translation.y < -0.45 || (translation.x < -4.6 || translation.x > 2.6)) && $Timer.is_stopped():
 				$Timer.start()
 				action = state.WAITING
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://BowlingBall.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://arrow.png" type="Texture" id=7]
 [ext_resource path="res://spin.png" type="Texture" id=8]
 [ext_resource path="res://Pins.gd" type="Script" id=9]
+[ext_resource path="res://ScoreSheet.gd" type="Script" id=10]
 
 [sub_resource type="PhysicsMaterial" id=8]
 friction = 0.5
@@ -238,12 +239,247 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 8 )
 
 [node name="ScoreSheet" type="Panel" parent="BowlingBall/Control"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.588235 )
-margin_left = 300.0
+margin_left = 200.0
 margin_top = 229.0
-margin_right = 724.0
+margin_right = 824.0
 margin_bottom = 397.0
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="BowlingBall/Control/ScoreSheet"]
+anchor_right = 1.0
+margin_bottom = 28.0
+text = "Bowling Score Sheet"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="BowlingBall/Control/ScoreSheet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 30.0
+margin_right = -5.0
+margin_bottom = -101.0
+columns = 11
+
+[node name="Frame1" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_right = 53.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame1"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame2" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 57.0
+margin_right = 110.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame3" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 114.0
+margin_right = 166.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame3"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame4" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 170.0
+margin_right = 222.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame4"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame5" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 226.0
+margin_right = 278.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame5"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame6" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 282.0
+margin_right = 334.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame6"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame7" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 338.0
+margin_right = 390.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame7"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame8" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 394.0
+margin_right = 446.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame8"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame9" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 450.0
+margin_right = 502.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame9"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Frame10" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 506.0
+margin_right = 558.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame10"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Total" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
+margin_left = 562.0
+margin_right = 614.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Total"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Next" type="Button" parent="BowlingBall/Control/ScoreSheet"]
+margin_left = 58.0
+margin_top = 107.0
+margin_right = 119.0
+margin_bottom = 133.0
+text = "Next"
+
+[node name="Restart" type="Button" parent="BowlingBall/Control/ScoreSheet"]
+margin_left = 424.0
+margin_top = 107.0
+margin_right = 485.0
+margin_bottom = 133.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="BowlingBall/Control/ScoreSheet"]
+margin_left = 507.0
+margin_top = 107.0
+margin_right = 568.0
+margin_bottom = 133.0
+text = "Quit"
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.946649, 0.322266, 0, -0.322266, 0.946649, -3.682, 1.12, 14 )
@@ -666,4 +902,7 @@ omni_range = 16.0
 omni_attenuation = 5.46416
 
 [connection signal="timeout" from="BowlingBall/Timer" to="BowlingBall" method="_on_Timer_timeout"]
+[connection signal="pressed" from="BowlingBall/Control/ScoreSheet/Next" to="BowlingBall/Control/ScoreSheet" method="_on_Next_pressed"]
+[connection signal="pressed" from="BowlingBall/Control/ScoreSheet/Restart" to="BowlingBall/Control/ScoreSheet" method="_on_Restart_pressed"]
+[connection signal="pressed" from="BowlingBall/Control/ScoreSheet/Quit" to="BowlingBall/Control/ScoreSheet" method="_on_Quit_pressed"]
 [connection signal="body_entered" from="Venue01/Gutter" to="BowlingBall" method="_on_Gutter_body_entered"]

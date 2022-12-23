@@ -10,6 +10,7 @@ enum state {
 	SPEED = 2
 	SPIN = 3
 	ROLLING = 4
+	WAITING = 5
 }
 
 var action = state.POSITIONING
@@ -20,7 +21,7 @@ var spin = 0
 
 
 # Resets all bowling ball and camera values and disables the ball's physics
-func reset():
+func reset(reset = false):
 	mode = RigidBody.MODE_STATIC
 	camera.overhead_view = true
 	
@@ -36,18 +37,18 @@ func reset():
 	translation = Vector3(-3.7, 0.25, 11)
 	rotation_degrees = Vector3.ZERO
 	action = state.POSITIONING
+	
+	pins.set_pins(reset)
 
 
 func _ready():
-	reset()
-	pins.set_pins(true)
-
+	reset(true)
 
 # Enables physics for the bowling ball and applies specified amount of force and rotation
-func roll(speed, angle, spin = 0):
+func roll(spd, ang, rot = 0):
 	mode = MODE_RIGID
-	apply_central_impulse(Vector3(angle, 18, -speed))
-	apply_torque_impulse(Vector3(-1, 0, spin))
+	apply_central_impulse(Vector3(ang, 18, -spd))
+	apply_torque_impulse(Vector3(-1, 0, rot))
 
 
 # Functions to change position and spin, locked between set values
@@ -139,12 +140,13 @@ func _process(_delta):
 		state.ROLLING:
 			if translation.y < -0.45 && $Timer.is_stopped():
 				$Timer.start()
+				action = state.WAITING
 
 
-# After set amount of time has passed, adds score and resets the game
+# After set amount of time has passed, adds score and displays the score sheet
 func _on_Timer_timeout():
-	pins.set_pins(Global.add_points())
-	reset()
+	Global.add_points()
+	$Control/ScoreSheet.display_scores()
 	
 
 # Prevents the ball from spinning and going flying when in the gutter

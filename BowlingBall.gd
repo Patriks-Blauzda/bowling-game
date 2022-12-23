@@ -27,6 +27,7 @@ func reset():
 	$Control/Speed.hide()
 	$Control/Spin.hide()
 	$GuidingArrow.hide()
+	$Control/ScoreSheet.hide()
 	
 	speed = 0
 	angle = 0
@@ -85,13 +86,13 @@ func _input(event):
 							camera.overhead_view = false
 							
 							$GuidingArrow.hide()
-							$Control/Speed.hide()
 							
 							$Control/Spin.show()
 							action = state.SPIN
 							
 						state.SPIN:
 							$Control/Spin.hide()
+							$Control/Speed.hide()
 							
 							roll(speed, angle, spin)
 							action = state.ROLLING

@@ -119,7 +119,7 @@ func _process(_delta):
 		
 		# Goes back and forth for the player to determine angle
 		state.ANGLING:
-			$GuidingArrow.rotation_degrees.y = clamp(sin(Time.get_unix_time_from_system() * 2) * 20, -20, 20)
+			$GuidingArrow.rotation_degrees.y = clamp(sin(Time.get_unix_time_from_system() * 3) * 18, -18, 18)
 		
 		# Same as angling, but for the ball's speed
 		state.SPEED:

@@ -11,7 +11,7 @@ const pin_positions = [
 
 # Separated from check_pins for readability
 func _is_upright(rot : Vector3):
-	if -60 < rot.x && rot.x < 60 && -60 < rot.z && rot.z < 60:
+	if -10 < rot.x && rot.x < 10 && -10 < rot.z && rot.z < 10:
 		return true
 	else:
 		return false

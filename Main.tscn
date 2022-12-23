@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://BowlingBall.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -117,6 +117,9 @@ radius = 0.102
 
 [sub_resource type="BoxShape" id=18]
 extents = Vector3( 0.859668, 0.715988, 0.948721 )
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 0.859668, 0.428002, 0.586187 )
 
 [sub_resource type="PhysicsMaterial" id=11]
 friction = 0.8
@@ -526,6 +529,10 @@ shape = SubResource( 17 )
 [node name="CollisionShape3" type="CollisionShape" parent="Venue01/Gutter"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304308, -0.787552, -11.6409 )
 shape = SubResource( 18 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Venue01/Gutter"]
+transform = Transform( 1, 0, 0, 0, 0.932966, 0.359964, 0, -0.359964, 0.932966, 0.0304308, 0.062987, -11.5606 )
+shape = SubResource( 23 )
 
 [node name="Pins" type="Node" parent="."]
 script = ExtResource( 9 )

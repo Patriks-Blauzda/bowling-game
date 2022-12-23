@@ -270,6 +270,8 @@ margin_right = 53.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
+text = "1
+2"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame1"]
@@ -281,6 +283,13 @@ margin_bottom = 2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
+
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame1"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Frame2" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 57.0
@@ -300,6 +309,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
 
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame2"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Frame3" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 114.0
 margin_right = 166.0
@@ -317,6 +333,13 @@ margin_bottom = 2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
+
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame3"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Frame4" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 170.0
@@ -336,6 +359,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
 
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame4"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Frame5" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 226.0
 margin_right = 278.0
@@ -353,6 +383,13 @@ margin_bottom = 2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
+
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame5"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Frame6" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 282.0
@@ -372,6 +409,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
 
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame6"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Frame7" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 338.0
 margin_right = 390.0
@@ -389,6 +433,13 @@ margin_bottom = 2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
+
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame7"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Frame8" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 394.0
@@ -408,6 +459,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
 
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame8"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Frame9" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 450.0
 margin_right = 502.0
@@ -426,6 +484,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
 
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame9"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="Frame10" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 506.0
 margin_right = 558.0
@@ -443,6 +508,13 @@ margin_bottom = 2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0.294118 )
+
+[node name="HSeparator" type="HSeparator" parent="BowlingBall/Control/ScoreSheet/GridContainer/Frame10"]
+anchor_right = 1.0
+anchor_bottom = 0.810811
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Total" type="Label" parent="BowlingBall/Control/ScoreSheet/GridContainer"]
 margin_left = 562.0

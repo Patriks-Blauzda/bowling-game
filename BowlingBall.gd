@@ -1,11 +1,15 @@
 extends RigidBody
 
+onready var pins = get_parent().get_node("Pins")
+onready var camera = get_parent().get_node("Camera")
+
 # Player input states
 enum state {
 	POSITIONING = 0
 	ANGLING = 1
 	SPEED = 2
-	ROLLING = 3
+	SPIN = 3
+	ROLLING = 4
 }
 
 var action = state.POSITIONING
@@ -18,7 +22,7 @@ var spin = 0
 # Resets all bowling ball and camera values and disables the ball's physics
 func reset():
 	mode = RigidBody.MODE_STATIC
-	get_parent().get_node("Camera").overhead_view = true
+	camera.overhead_view = true
 	
 	$Control/Speed.hide()
 	$Control/Spin.hide()
@@ -35,13 +39,14 @@ func reset():
 
 func _ready():
 	reset()
+	pins.set_pins(true)
 
 
 # Enables physics for the bowling ball and applies specified amount of force and rotation
 func roll(speed, angle, spin = 0):
 	mode = MODE_RIGID
 	apply_central_impulse(Vector3(angle, 18, -speed))
-	apply_torque_impulse(Vector3(0, 0, spin))
+	apply_torque_impulse(Vector3(-1, 0, spin))
 
 
 # Functions to change position and spin, locked between set values
@@ -77,19 +82,19 @@ func _input(event):
 							
 						state.SPEED:
 							speed = $Control/Speed.value
-							get_parent().get_node("Camera").overhead_view = false
+							camera.overhead_view = false
 							
 							$GuidingArrow.hide()
 							$Control/Speed.hide()
 							
 							$Control/Spin.show()
-							action = state.ROLLING
+							action = state.SPIN
 							
-						state.ROLLING:
-							if mode != MODE_RIGID:
-								$Control/Spin.hide()
-								
-								roll(speed, angle, spin)
+						state.SPIN:
+							$Control/Spin.hide()
+							
+							roll(speed, angle, spin)
+							action = state.ROLLING
 				
 				# Keys for debugging
 				KEY_R:
@@ -120,7 +125,7 @@ func _process(_delta):
 			$Control/Speed.value = clamp(sin(Time.get_unix_time_from_system() * 6) * 50 + 150, 100, 200)
 		
 		# Allows the player to choose how much the ball spins before rolling
-		state.ROLLING:
+		state.SPIN:
 			if Input.is_action_pressed("left"):
 				adjust_spin(1)
 			
@@ -128,7 +133,18 @@ func _process(_delta):
 				adjust_spin(-1)
 			
 			$Control/Spin.rotation_degrees -= spin
+		
+		# Checks when the ball has dropped in the gutter and waits before finishing
+		state.ROLLING:
+			if translation.y < -0.45 && $Timer.is_stopped():
+				$Timer.start()
 
+
+# After set amount of time has passed, adds score and resets the game
+func _on_Timer_timeout():
+	pins.set_pins(Global.add_points())
+	reset()
+	
 
 # Prevents the ball from spinning and going flying when in the gutter
 func _on_Gutter_body_entered(body):

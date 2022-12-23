@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://BowlingBall.gd" type="Script" id=1]
 [ext_resource path="res://Camera.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Models/Images/brick01.bmp" type="Texture" id=6]
 [ext_resource path="res://arrow.png" type="Texture" id=7]
 [ext_resource path="res://spin.png" type="Texture" id=8]
+[ext_resource path="res://Pins.gd" type="Script" id=9]
 
 [sub_resource type="PhysicsMaterial" id=8]
 friction = 0.5
@@ -186,6 +187,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Timer" type="Timer" parent="BowlingBall"]
+wait_time = 5.0
+one_shot = true
+
 [node name="CollisionShape" type="CollisionShape" parent="BowlingBall"]
 shape = SubResource( 4 )
 
@@ -232,6 +237,7 @@ anims/RESET = SubResource( 19 )
 "anims/overhead transition" = SubResource( 20 )
 
 [node name="Venue01" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = ExtResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="Venue01"]
@@ -268,9 +274,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304308, -0.787552, -11.6409
 shape = SubResource( 18 )
 
 [node name="Pins" type="Node" parent="."]
+script = ExtResource( 9 )
 
 [node name="BowlingPin1" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69345, 0.24041, -9.92765 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70402, 0.24, -9.92 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -287,7 +294,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin2" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84284, 0.24041, -10.1524 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84402, 0.24, -10.15 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -304,7 +311,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin3" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54809, 0.24041, -10.1524 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52402, 0.24, -10.15 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -321,7 +328,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin4" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68828, 0.24041, -10.4075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00402, 0.24, -10.4 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -338,7 +345,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin5" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97576, 0.24041, -10.4075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70402, 0.24, -10.4 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -355,7 +362,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin6" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41362, 0.24041, -10.4075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40402, 0.24, -10.4 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -372,7 +379,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin7" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26263, 0.24041, -10.6734 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15402, 0.24, -10.68 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -389,7 +396,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin8" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53939, 0.24041, -10.6734 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84402, 0.24, -10.68 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -406,7 +413,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin9" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82773, 0.24041, -10.6734 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52402, 0.24, -10.68 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -423,7 +430,7 @@ transform = Transform( 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 0, 0.0265081, 0, 0, 
 shape = SubResource( 10 )
 
 [node name="BowlingPin10" type="RigidBody" parent="Pins"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14516, 0.24041, -10.6734 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26402, 0.24, -10.68 )
 mass = 4.0
 physics_material_override = SubResource( 11 )
 __meta__ = {
@@ -640,4 +647,5 @@ shadow_enabled = true
 omni_range = 16.0
 omni_attenuation = 5.46416
 
+[connection signal="timeout" from="BowlingBall/Timer" to="BowlingBall" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Venue01/Gutter" to="BowlingBall" method="_on_Gutter_body_entered"]

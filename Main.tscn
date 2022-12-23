@@ -239,7 +239,7 @@ scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 8 )
 
 [node name="ScoreSheet" type="Panel" parent="BowlingBall/Control"]
-self_modulate = Color( 1, 1, 1, 0.588235 )
+self_modulate = Color( 1, 1, 1, 0.686275 )
 margin_left = 200.0
 margin_top = 229.0
 margin_right = 824.0

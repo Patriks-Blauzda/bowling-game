@@ -41,7 +41,7 @@ func display_scores():
 # Advances the game or restarts it if the game has ended
 func _on_Next_pressed():
 	hide()
-	Global.reset_game()
+	get_owner().get_node("BowlingBall").reset(Global.is_scene_empty())
 
 
 # Closes the game
@@ -51,4 +51,4 @@ func _on_Quit_pressed():
 
 # Reloads scene
 func _on_Restart_pressed():
-	get_owner().get_node("BowlingBall").reset(Global.is_scene_empty())
+	Global.reset_game()

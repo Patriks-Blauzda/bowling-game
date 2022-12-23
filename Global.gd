@@ -39,7 +39,7 @@ func add_points():
 	if score == 10 || scoring[scene_index].size() > 1:
 		finish_scene()
 		return true
-		pass
+		
 	else:
 		return false
 
@@ -54,6 +54,7 @@ func finish_scene():
 		game_finished = true
 
 
+# Restarts the game and empties own variables, so that none carry over to the new game
 func reset_game():
 	scoring = [ [] ]
 	scene_index = 0

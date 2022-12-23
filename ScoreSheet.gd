@@ -47,7 +47,8 @@ func _on_Next_pressed():
 # Closes the game
 func _on_Quit_pressed():
 	get_tree().quit()
+	
 
-
+# Reloads scene
 func _on_Restart_pressed():
 	get_owner().get_node("BowlingBall").reset(Global.is_scene_empty())
